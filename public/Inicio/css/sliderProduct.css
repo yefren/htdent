@@ -1,0 +1,57 @@
+/* inicio libreria de alpine js */
+
+.flickity-viewport {
+    height: 545px !important;
+}
+
+.flickity-page-dots {
+    display: none;
+}
+
+.px-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-top: auto;
+}
+
+
+/* fin libreria de alpine js */
+
+.contenedor_imagen .imagen {
+    margin: auto;
+    margin-top: 15px;
+}
+
+.contenedor_imagen {
+    margin-top: 100px;
+}
+
+.contenedor_marca {
+    height: 280px;
+}
+
+@media (max-width: 850px) {
+    .contenedor_imagen .imagen {
+        margin: auto;
+        width: 90px!important;
+        margin-top: -54px!important;
+    }
+    .contenedor_imagen {
+        margin-top: 100px!important;
+        width: 33.333333%!important;
+        margin-left: 28px!important;
+    }
+}
+
+@media (max-width: 600px) {
+    .contenedor_imagen .imagen {
+        margin: auto;
+        width: 43px!important;
+        margin-top: 43px!important;
+    }
+    .contenedor_imagen {
+        margin-top: 100px!important;
+        width: 33.333333%!important;
+        margin-left: -16px!important;
+    }
+}

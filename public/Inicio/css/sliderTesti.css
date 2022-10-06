@@ -1,0 +1,42 @@
+/* inicio libreria de alpine js */
+
+.flickity-viewport {
+    height: 500px !important;
+}
+
+.flickity-page-dots {
+    display: none;
+}
+
+
+/* fin libreria de alpine js */
+
+.contenedor_testimonio .imagen {
+    margin: auto;
+}
+
+.contenedor_testimonio .nombres {
+    color: black;
+    text-align: center;
+    font-size: 40px;
+    width: auto;
+}
+
+.contenedor_testimonio .profesion {
+    color: black;
+    text-align: center;
+    font-size: 25px;
+    width: auto;
+}
+
+.contenedor_testimonio .descripcion {
+    font-size: 16px;
+}
+
+
+
+@media screen and (max-width:600px) {
+    .contenedor_testimonio  .descripcion {
+        font-size: 14px !important;
+    }
+}

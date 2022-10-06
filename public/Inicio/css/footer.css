@@ -1,0 +1,247 @@
+.contenedor_footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1 fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(200px, auto);
+    background: #444;
+    margin-top: 40px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 100%;
+    font: bold 16px sans-serif;
+    text-align: left;
+    padding: 50px 60px 40px;
+    overflow: hidden;
+}
+
+.contenedor_footer .izquierda_footer .telefono {
+    float: right;
+    margin-top: -23px;
+    color: white;
+}
+
+
+
+
+.contenedor_footer .derecha_footer {
+    grid-column: 1/2;
+    grid-row: 1;
+    /* float: left; */
+    margin: auto;
+}
+
+
+/* The company logo */
+
+.contenedor_footer h3 {
+    color: #ffffff;
+    font: normal 36px 'Roboto', cursive;
+    margin: 0 0 10px;
+}
+
+.contenedor_footer h3 span {
+    color: #5383d3;
+}
+
+
+/* Footer links */
+
+.contenedor_footer .contenido_footer {
+    color: #ffffff;
+    margin: 0 0 10px;
+    padding: 0;
+}
+
+.contenedor_footer .contenido_footer a   {
+    display: inline-block;
+    line-height: 1.8;
+    text-decoration: none;
+    color: inherit;
+}
+
+.contenedor_footer .direccion {
+    color: #8f9296;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.contenedor_footer .icono_footer {
+    margin-top: 40px;
+}
+
+.contenedor_footer .icono_footer a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color: #33383b;
+    border-radius: 2px;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 35px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+.contenedor_footer .izquierda_footer {
+    grid-column: 2/2;
+    grid-row: 1;
+    margin: auto;
+    /* float: right; */
+}
+
+.contenedor_footer .derecha_footer p {
+    display: inline-block;
+    font-size: 25px;
+    vertical-align: top;
+    margin: 15px 42px 0 0;
+    color: #ffffff;
+}
+
+.contenedor_footer form input,
+.contenedor_footer form textarea {
+    display: block;
+    background-color: #444;
+    font: inherit;
+    font-size: 14px;
+    font-weight: normal;
+    color: #fff;
+    width: 400px;
+    padding: 18px;
+}
+
+input[type=text]:focus {
+    border: none;
+    border-bottom: 2px solid #ffffff;
+    border-top: #444;
+    background: none;
+    outline: none;
+}
+
+
+/* input[type=number] {
+        border: none;
+            border-bottom: 2px solid #fff;
+            outline: none;
+            background: none;
+
+
+        } */
+
+.contenedor_footer ::-webkit-input-placeholder {
+    color: #5c666b;
+}
+
+.contenedor_footer ::-moz-placeholder {
+    color: #5c666b;
+    opacity: 1;
+}
+
+.contenedor_footer :-ms-input-placeholder {
+    color: #5c666b;
+}
+
+.contenedor_footer form input {
+    height: 55px;
+    width: 436px;
+    margin-bottom: 15px;
+}
+
+.contenedor_footer form textarea {
+    height: 100px;
+    width: 436px;
+    margin-bottom: 20px;
+}
+
+.contenedor_footer form button {
+    border-radius: 3px;
+    background-color: #33383b;
+    color: #ffffff;
+    border: 0;
+    padding: 15px 50px;
+    font-weight: bold;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+.diseño {
+    width: 85% !important;
+    border: none;
+    background: none;
+    border-bottom: 1px solid #ffffff;
+}
+
+.contenedor_footer .columna1 {
+    width: 43% !important;
+    float: left;
+    margin-left: 0px;
+}
+
+.contenedor_footer .columna2 {
+    width: 41% !important;
+    float: left;
+    margin-left: 10px;
+}
+
+ .centro_footer {
+    color: #ffffff;
+    background: #444;
+    display: block;
+    text-align: center;
+}
+
+.centro {
+    margin-top: -48px;
+}
+
+.diseño:focus {
+    outline: none;
+}
+.contenedor_mapa {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  }
+
+.responsive_mapa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 800px) {
+    .contenedor_footer .telefono {
+        float: right;
+        margin-top: -23px;
+        font-size: 11px;
+        color: white;
+    }
+    .contenedor_footer .columna1 {
+        width: 85% !important;
+    }
+    .contenedor_footer .columna2 {
+        width: 85% !important;
+    }
+    .contenedor_footer {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+    }
+}

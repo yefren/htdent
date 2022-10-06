@@ -1,0 +1,427 @@
+*****************************************************************
+composer create-project laravel/laravel htdentshop
+
+git init
+git add .
+git commit -m "Iniciando Ecommerce"
+git log
+
+git remote add origin https://github.com/yefren/htdent.git
+git push origin master
+
+*****************************************************************
+php artisan serve
+composer require laravel/jetstream
+
+php artisan jetstream:install livewire
+
+npm install
+
+npm run dev
+
+->Configurar el .env con la base de datos mysql
+->Crear la base de datos en phpmyadmin
+
+php artisan migrate
+*****************************************************************
+git checkout -b dependencias
+git branch
+git status
+
+git add .
+git commit -m "Instalando dependencias"
+git push origin dependencias
+->Click en boton Merge pull request
+*****************************************************************
+->Crea la migración y el modelo
+->m:migración, s: seeder cantidad de registros, c: controlador, f: factories
+php artisan make:model Categoria -ms
+php artisan make:model Subcategoria -ms
+
+php artisan make:model Marca -mfs
+php artisan make:migration create_categoria_marca_table
+
+->Crea la migración, el modelo y factories
+php artisan make:model Producto -msf
+
+php artisan make:model Color -ms
+php artisan make:migration create_color_producto_table
+
+php artisan make:model Medida -mf
+php artisan make:migration create_color_medida_table
+
+php artisan make:model Imagen -mf
+
+php artisan migrate
+php artisan migrate:rollback
+php artisan migrate
+*****************************************************************
+git checkout -b modelo
+git branch
+git status
+
+git add .
+git commit -m "Creando las migraciones"
+git push origin modelo
+->Click en boton Merge pull request
+*****************************************************************
+git checkout -b relaciones
+git branch
+git status
+
+git add .
+git commit -m "Creando las relaciones con eloquent"
+git push origin relaciones
+->Click en boton Merge pull request
+*****************************************************************
+->Seeder: permiten comunicarse con la base de datos de una forma más eficiente y optimizada.
+->Factories: nos permiten crear registros de prueba
+php artisan make:seeder UserSeeder
+
+php artisan make:factory CategoriaFactory
+
+->cambiar en config el filesystems la ruta
+php artisan storage:link
+
+php artisan migrate:fresh --seed
+->Me salio error en guardar imagenes en el public y pues la solucion es mofificar el vendor
+vendor\fakerphp\faker\src\Faker\Provider\Image.php
+$baseUrl = "https://picsum.photos/";
+
+public const BASE_URL = 'https://placehold.jp';  // cambie la URL
+
+curl_setopt($ch, CURLOPT_FILE, $fp); //línea existente
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);//nueva línea
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);//nueva línea
+$success = curl_exec($ch) && curl_getinfo($ch, CURLINFO_HTTP_CODE) === 200;//línea existente
+
+php artisan migrate:fresh --seed
+
+php artisan make:factory SubcategoriaFactory
+php artisan migrate:fresh --seed
+
+php artisan migrate:fresh --seed
+php artisan make:seeder ColorProductoSeeder
+php artisan make:seeder MedidaSeeder
+
+php artisan migrate:fresh --seed
+*****************************************************************
+git checkout -b factories
+git branch
+git status
+
+git add .
+git commit -m "Llenando datos falso"
+git push origin factories
+->Click en boton Merge pull request
+*****************************************************************
+PS C:\xampp\htdocs> git clone https://github.com/Mersmith/htdentshop.git
+
+composer install
+npm install
+crear el archivo .env
+
+php artisan storage:link
+*****************************************************************
+->Instalar Tailwind
+->Al momentos de instalar jetstream se instalo y configuro Tailwind
+*****************************************************************
+php artisan make:livewire menu-principal
+php artisan vendor:publish --tag=jetstream-views
+no
+
+php artisan key:generate
+*****************************************************************
+git config --global user.email "mersmith14@gmail.com"
+git config --global user.name "Mersmith"
+git config --global -l
+
+git init
+git add .
+git checkout -b plantilla
+git branch
+git status
+
+git add .
+
+git commit -m "Diseñando la plantilla de app"
+git push origin plantilla
+->Click en boton Merge pull request
+*****************************************************************
+->configure jetstream habilitar subir fotos
+php artisan make:livewire menu-carrrito
+*****************************************************************
+git checkout -b menuinicio
+git branch
+git status
+
+git add .
+git commit -m "Menu desplegable de Perfil y del Carrito"
+git push origin menuinicio
+->Click en boton Merge pull request
+*****************************************************************
+git checkout -b 7_menuprincipal
+git branch
+git status
+
+git add .
+git commit -m "Interación con Alpine js y sidebar"
+git push origin 7_menuprincipal
+->Click en boton Merge pull request
+*****************************************************************
+php artisan make:livewire categoria-productos
+php artisan make:controller InicioController
+->instalar glider js
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
+<script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+*****************************************************************
+git checkout -b 8_configuracion_glider
+git branch
+git status
+
+git add .
+git commit -m "Configuran la libreria glider para los productos"
+git push origin 8_configuracion_glider
+->Click en boton Merge pull request
+*****************************************************************
+git checkout -b 9_slider_productos_inicio
+git branch
+git status
+
+git add .
+git commit -m "Creando el slider de los productos en inicio"
+git push origin 9_slider_productos_inicio
+->Click en boton Merge pull request
+*****************************************************************
+php -S localhost:8000 -t public/
+php artisan livewire:publish
+'asset_url' => url('/')
+*****************************************************************
+git checkout -b 10_slider_categorias_inicio
+git branch
+git status
+
+git add .
+git commit -m "Creando el slider de las categoria pagina inicio"
+git push origin 10_slider_categorias_inicio
+->Click en boton Merge pull request
+*****************************************************************
+php artisan make:controller CategoriaController
+->Problema al crear categoriacontroller por la url en el livewire
+php artisan make:livewire categoria-filtro
+*****************************************************************
+git checkout -b 11_pagina_categorias
+git branch
+git status
+
+git add .
+git commit -m "Creando la pagina categorias"
+git push origin 11_pagina_categorias
+->Click en boton Merge pull request
+*****************************************************************
+php artisan make:controller ProductoController
+composer require jenssegers/date
+php artisan make:livewire agregar-carrito-producto
+php artisan make:livewire agregar-carrito-producto-color
+php artisan make:livewire agregar-carrito-producto-medida
+*****************************************************************
+php artisan make:seeder ColorMedidaSeeder
+php artisan migrate:fresh --seed
+*****************************************************************
+git checkout -b 12_pagina_producto
+git branch
+git status
+
+git add .
+git commit -m "Creando la pagina producto solo"
+git push origin 12_pagina_producto
+->Click en boton Merge pull request
+*****************************************************************
+php artisan make:model Slider -m
+php artisan migrate
+-> imagenes/slider/slider1.jpg
+*****************************************************************
+git checkout -b 13_reestructuracion
+git branch
+git status
+
+git add .
+git commit -m "Reestructure las carpetas en frontend y admin"
+git push origin 13_reestructuracion
+->Click en boton Merge pull request
+*****************************************************************
+composer require bumbummen99/shoppingcart
+-> crear la carpeta helpers y crear funciones
+-> Modificamos el composer.json
+composer dump-autoload
+
+->Utilizando accesores
+
+php artisan make:model ColorMedida
+php artisan make:model ColorProducto
+*****************************************************************
+git checkout -b 14_carrito
+git branch
+git status
+
+git add .
+git commit -m "Carrito, stock"
+git push origin 14_carrito
+->Click en boton Merge pull request
+******************************************************************
+php artisan make:livewire frontend.carrito-compras
+php artisan make:livewire frontend.actualizar-carrito-item
+php artisan make:livewire frontend.actualizar-carrito-item-color
+php artisan make:livewire frontend.actualizar-carrito-item-medida
+*****************************************************************
+git checkout -b 15_carrito_pagina
+git branch
+git status
+
+git add .
+git commit -m "Crud de la pagina carrito de compras"
+git push origin 15_carrito_pagina
+->Click en boton Merge pull request
+*****************************************************************
+php artisan make:livewire Admin\MostrarProductos
+php artisan make:livewire Admin\CrearProducto
+->utilizar plugin ckeditor
+<script src="https://cdn.ckeditor.com/ckeditor5/35.0.1/classic/ckeditor.js"></script>
+php artisan make:livewire Admin\EditarProducto
+
+php artisan make:livewire Admin\MedidaProducto
+php artisan make:livewire Admin\ColorProducto
+->Instalar <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+php artisan make:livewire Admin\ColorMedida
+
+->agregar Dropzone
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js" integrity="sha512-U2WE1ktpMTuRBPoCFDzomoIorbOyUv0sP8B+INA3EzNAhehbzED1rOJg6bCqPf/Tuposxb5ja/MAUnC8THSbLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.css" integrity="sha512-jU/7UFiaW5UBGODEopEqnbIAHOI8fO6T99m7Tsmqs2gkdujByJfkCbbfPSN4Wlqlb9TGnsuC0YgUgWkRBK7B9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+php artisan make:controller Admin\ProductoController
+
+php artisan make:observer ProductoObserver
+
+php artisan make:livewire Admin\EstadoProducto
+
+php artisan make:controller Admin\CategoriaController
+
+php artisan make:component AdminLayout
+*****************************************************************
+git checkout -b 16_Crud_producto
+git branch
+git status
+
+git add .
+git commit -m "Crud de agregar productos"
+git push origin 16_Crud_producto
+->Click en boton Merge pull request
+***********************30/08/22******************************************
+php artisan make:livewire Admin\Categoria\mostrar-categoria
+php artisan make:livewire Admin\Categoria\crear-categoria
+php artisan make:seeder SliderSeeder
+php artisan make:factory SliderFactory
+php artisan make:factory SliderFactory --model=Slider
+
+php artisan make:livewire Admin\Marca\mostrar-marca
+*****************************************************************
+
+
+git checkout -b 17_Crud_categoria_subcategoria_marca
+git branch
+git status
+
+git add .
+git commit -m "Crud de categoria, subcategoria y marca."
+git push origin 17_Crud_categoria_subcategoria_marca
+->Click en boton Merge pull request
+***********************30/08/22******************************************
+php artisan make:livewire Frontend\Orden\crear-orden
+
+->Para guardar productos de carrito
+https://packagist.org/packages/bumbummen99/shoppingcart
+php artisan vendor:publish --provider="Gloudemans\Shoppingcart\ShoppingcartServiceProvider" --tag="migrations"
+
+php artisan migrate
+
+->Agregar eventos en EventServiceProvider
+php artisan event:generate
+
+php artisan make:model Departamento -mfs
+php artisan make:model Ciudad -mfs
+php artisan make:model Distrito -mfs
+php artisan make:model Orden -m
+
+php artisan migrate:fresh
+php artisan migrate:fresh --seed
+
+php artisan make:controller Frontend\OrdenController
+
+
+git checkout -b 18_Pagina_Orden
+git branch
+git status
+
+git add .
+git commit -m "Pagina Orden de pago"
+git push origin 18_Pagina_Orden
+->Click en boton Merge pull request
+***********************30/08/22******************************************
+https://www.mercadopago.com.pe/developers/es
+https://www.mercadopago.com.pe/developers/panel
+->Crear aplicacion
+->Elige el producto que vas a integrar: Checkout Pro
+
+git checkout -b 19_Credenciales_Mercadopago
+git branch
+git status
+
+git add .
+git commit -m "Credencias mercadopago del vendedor y comprador."
+git push origin 19_Credenciales_Mercadopago
+->Click en boton Merge pull request
+***********************31/08/22******************************************
+php artisan make:controller Frontend\WebhooksController
+
+->VerifyCsrfToken
+
+php artisan make:livewire Frontend\Orden\PagoOrden
+php artisan make:policy OrdenPolicy
+php artisan schedule:work
+
+git checkout -b 20_Pagar_Mercadopago
+git branch
+git status
+
+git add .
+git commit -m "Pagar con mercadopago"
+git push origin 20_Pagar_Mercadopago
+->Click en boton Merge pull request
+***********************01/09/22******************************************
+php artisan make:controller Admin\OrdenController
+php artisan make:controller Frontend\BuscarController
+php artisan make:livewire Frontend\Buscar
+
+git checkout -b 21_Refactorizacion1
+git branch
+git status
+
+git add .
+git commit -m "Refactorice el codigo y organice"
+git push origin 21_Refactorizacion1
+->Click en boton Merge pull request
+***********************05/09/22******************************************
+
+php artisan make:livewire Admin\Producto\solo-medida-producto
+php artisan make:livewire Admin\Producto\solo-color-medida-producto
+php artisan make:livewire Frontend\Producto\agregar-carrito-solo-producto-medida
+
+git checkout -b 22_Subir_Imagenes_Medida
+git branch
+git status
+
+git add .
+git commit -m "Subir Imagenes al producto y variacion del producto en medidad"
+git push origin 22_Subir_Imagenes_Medida
+->Click en boton Merge pull request
