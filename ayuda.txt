@@ -24,13 +24,13 @@ npm run dev
 
 php artisan migrate
 *****************************************************************
-git checkout -b dependencias
+git checkout -b 1_Inicio
 git branch
 git status
 
 git add .
-git commit -m "Instalando dependencias"
-git push origin dependencias
+git commit -m "Diseño del menu, slider, footer."
+git push origin 1_Inicio
 ->Click en boton Merge pull request
 *****************************************************************
 ->Crea la migración y el modelo
@@ -115,7 +115,7 @@ git commit -m "Llenando datos falso"
 git push origin factories
 ->Click en boton Merge pull request
 *****************************************************************
-PS C:\xampp\htdocs> git clone https://github.com/Mersmith/htdentshop.git
+PS C:\xampp\htdocs> git clone https://github.com/yefren/htdent.git
 
 composer install
 npm install
